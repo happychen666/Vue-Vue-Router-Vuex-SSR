@@ -69,4 +69,4 @@ setInterval(() => {
 }, 1000)
 
 // 这里text是4步增加，而不是按一步来加，所以不是一次变化就渲染一次dom
-// 操作dom节点的操作，我们会希望每次dom节点更新之后再去操作dom,$nextTick()是在vue进行下一次dom更新的时候才执行我们传进的callback，
+// 操作dom节点的操作，我们希望每次dom节点更新之后再去操作dom,$nextTick()是在vue进行下一次dom更新的时候才执行我们传进的callback，
