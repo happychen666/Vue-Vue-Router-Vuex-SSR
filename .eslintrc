@@ -4,6 +4,7 @@
     "parser": "babel-eslint",
     "rules":{
         "no-new":"off",
+        "space-before-function-paren": 0,
         "semi": ["error", "never"]
     }
 }
