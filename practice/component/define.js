@@ -8,7 +8,13 @@ import Vue from 'vue'
 const componentA = {
   // 在组件中不能修改props传进来的值
   props: {
-    active: Boolean,
+    // active: Boolean,
+    active: {
+      //   type: Boolean,
+      validator(value) {
+        return typeof value === 'boolean'
+      }
+    },
     textOne: Number
   },
   template: `<div>
