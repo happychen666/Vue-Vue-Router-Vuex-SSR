@@ -5,4 +5,5 @@
 // import './computed-watch'
 // import './directive'
 // import './component/define'
-import './component/extend'
+// import './component/extend'
+import './v-model'
