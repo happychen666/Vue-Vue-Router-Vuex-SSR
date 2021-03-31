@@ -4,4 +4,5 @@
 // import './data-binding'
 // import './computed-watch'
 // import './directive'
-import './component/define'
+// import './component/define'
+import './component/extend'
