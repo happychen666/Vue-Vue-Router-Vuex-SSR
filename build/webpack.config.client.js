@@ -1,12 +1,12 @@
 // 通过webpack-merge来扩展我们的配置文件
-const path = require('path'); // path是Nodejs中的基本包,用来处理路径
-const HTMLPlugin = require('html-webpack-plugin'); // 引入html-webpack-plugin
-const webpack = require('webpack'); // 引入webpack
-const merge = require('webpack-merge'); // 这个工具可以帮我们合并不同文件的webpack配置
-const ExtractPlugin = require('extract-text-webpack-plugin'); // 使用 extract-text-webpack-plugin 自动提取 CSS。适用于大多数预处理器，且也可在生产环境进行压缩。
-const baseConfig = require('./webpack.config.base');
+const path = require('path') // path是Nodejs中的基本包,用来处理路径
+const HTMLPlugin = require('html-webpack-plugin') // 引入html-webpack-plugin
+const webpack = require('webpack') // 引入webpack
+const merge = require('webpack-merge') // 这个工具可以帮我们合并不同文件的webpack配置
+const ExtractPlugin = require('extract-text-webpack-plugin') // 使用 extract-text-webpack-plugin 自动提取 CSS。适用于大多数预处理器，且也可在生产环境进行压缩。
+const baseConfig = require('./webpack.config.base')
 
-const isDev = process.env.NODE_ENV === 'development'; // 判断是否为测试环境,在启动脚本时设置的环境变量都是存在于process.env这个对象里面的
+const isDev = process.env.NODE_ENV === 'development' // 判断是否为测试环境,在启动脚本时设置的环境变量都是存在于process.env这个对象里面的
 const devServer = {
   // 这个devServer的配置是在webpack2.x以后引入的,1.x是没有的
   port: 8000, // 访问的端口号
@@ -14,10 +14,12 @@ const devServer = {
   overlay: {
     errors: true // 编译中遇到的错误都会显示到网页中去
   },
+  historyApiFallback: {
+    index: '/index.html'
+  },
   // open: true ,                                 //项目启动时,会默认帮你打开浏览器
   hot: true // 在单页面应用开发中,我们修改了代码后是整个页面都刷新,开启hot后,将只刷新对应的组件
-};
-console.log('isDev====', isDev);
+}
 const defaultPlugins = [
   new webpack.DefinePlugin({
     'process.env': {
@@ -25,9 +27,9 @@ const defaultPlugins = [
     }
   }),
   new HTMLPlugin()
-];
+]
 
-let config;
+let config
 
 if (isDev) {
   config = merge(baseConfig, {
@@ -56,7 +58,7 @@ if (isDev) {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin()
     ])
-  });
+  })
 } else {
   config = merge(baseConfig, {
     entry: {
@@ -95,7 +97,7 @@ if (isDev) {
         name: 'runtime'
       })
     ])
-  });
+  })
 }
 
-module.exports = config; // 声明一个config的配置,用于对外暴露
+module.exports = config // 声明一个config的配置,用于对外暴露

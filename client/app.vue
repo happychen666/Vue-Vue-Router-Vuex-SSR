@@ -2,8 +2,14 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <Todo></Todo>
+    <!-- <Todo></Todo> -->
+    <router-link to="/app">app</router-link>
+    <router-link to="/app/123">app123</router-link>
+    <router-link to="/app/456">app456</router-link>
+    <router-link to="/login">login</router-link>
+    <router-view />
     <Footer></Footer>
+    <!-- <router-view name="viewB" /> -->
   </div>
 </template>
 
@@ -22,19 +28,22 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-#app
-    position absolute
-    left 0
-    right 0
-    top 0
-    bottom 0
-    #cover
-        position absolute
-        left 0
-        right 0
-        top 0
-        bottom 0
-        background-color #999
-        opacity 0.2
-        z-index -1
+#app {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  #cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #999;
+    opacity: 0.2;
+    z-index: -1;
+  }
+}
 </style>

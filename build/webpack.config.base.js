@@ -1,7 +1,7 @@
-const path = require('path'); // path是Nodejs中的基本包,用来处理路径
-const vueLoaderOptions = require('./vue-loader.config');
+const path = require('path') // path是Nodejs中的基本包,用来处理路径
+const vueLoaderOptions = require('./vue-loader.config')
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
   target: 'web', // 设置webpack的编译目标是web平台
@@ -57,6 +57,6 @@ const config = {
       }
     ]
   }
-};
+}
 
-module.exports = config; // 声明一个config的配置,用于对外暴露
+module.exports = config // 声明一个config的配置,用于对外暴露
